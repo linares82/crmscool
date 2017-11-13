@@ -97,7 +97,7 @@
                             <span class="help-block">{{ $errors->first("plantel_id") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('empleado_id')) has-error @endif" style="clear:left;">
+                        <div class="form-group col-md-4 @if($errors->has('empleado_id')) has-error @endif">
                             <label for="empleado_id-field">Empleado</label>
                             {!! Form::select("empleado_id", $empleados, null, array("class" => "form-control select_seguridad", "id" => "empleado_id-field")) !!}
                             <div id='loading3' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
