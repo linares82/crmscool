@@ -1093,7 +1093,7 @@
 
                             function getCmbEmpleados(){
                                 //$('#empleado_id_field option:selected').val($('#empleado_id_campo option:selected').val()).change();
-                                var a= $('#frm_reasignar').serialize();
+                                var a= $('#frm_cliente').serialize();
                                     $.ajax({
                                         url: '{{ route("empleados.getEmpleadosXplantel") }}',
                                         type: 'GET',
@@ -1602,7 +1602,7 @@
                             popup = window.open("{{route('inscripcions.create')}}", "Popup", "width=800,height=650");
                             popup.onload = function(){
                             popup.document.getElementById('plantel_id-field').value = plantel;
-                            popup.document.getElementById('cliente_id-field').value = {{$cliente - > id}};
+                            popup.document.getElementById('cliente_id-field').value = {{$cliente->id}};
                             popup.location.reload();
                             if (numero == 1){
                             popup.document.getElementById('especialidad_id-field').value = especialidad1;
