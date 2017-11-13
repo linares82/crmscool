@@ -16,6 +16,7 @@ use App\Municipio;
 use App\PivotDocCliente;
 use App\Preguntum;
 use App\Param;
+use App\Plantilla;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests\updateCliente;
@@ -540,16 +541,19 @@ class ClientesController extends Controller {
         //dd($_REQUEST);
         $r = 0;
         $cli = Cliente::find(e($request->id));
+        $pla = Plantilla::find(2)->toArray();
+        //dd($pla);
+        
         if ($request->ajax()) {
             try {
                 $r = Param::where('llave', '=', 'correo_electronico')->first();
                 if ($r->valor == 'activo') {
-                    \Mail::send('emails.7', $cli->toArray(), function($message) use ($request) {
+                    \Mail::send('emails.7', $pla, function($message) use ($request) {
                         $message->to(e($request->mail), e($request->nombre) . " " . e($request->ape_paterno) . " " . e($request->ape_materno));
                         $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
                         $message->subject("Bienvenido");
                     });
-
+                    
                     $input2['usu_envio_id'] = Auth::user()->id;
                     $input2['cliente_id'] = e($request->input('id'));
                     $input2['fecha_envio'] = date("Y/m/d");

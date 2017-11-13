@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            {!! Form::model($grado, array('route' => array('grados.store'))) !!}
+            {!! Form::model($grado, array('route' => array('grados.store'), 'id'=>'frm_grados')) !!}
 
 @include('grados._form')
 
