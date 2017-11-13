@@ -101,6 +101,10 @@
                     <thead>
                         <tr>
                             <th>@include('plantillas.getOrderLink', ['column' => 'id', 'title' => 'ID'])</th>
+                            <th>@include('CrudDscaffold::getOrderlink', ['column' => 'plantel_id', 'title' => 'PLANTEL'])</th>
+                            <th>@include('CrudDscaffold::getOrderlink', ['column' => 'especialidad_id', 'title' => 'ESPECIALIDAD'])</th>
+                            <th>@include('CrudDscaffold::getOrderlink', ['column' => 'nivel_id', 'title' => 'NIVEL'])</th>
+                            <th>@include('CrudDscaffold::getOrderlink', ['column' => 'grado_id', 'title' => 'GRADO'])</th>
                             <th>@include('CrudDscaffold::getOrderlink', ['column' => 'name', 'title' => 'TURNO'])</th>
                             <th class="text-right">OPCIONES</th>
                         </tr>
@@ -110,6 +114,10 @@
                         @foreach($turnos as $turno)
                             <tr>
                                 <td><a href="{{ route('turnos.show', $turno->id) }}">{{$turno->id}}</a></td>
+                                <td>{{$turno->plantel->razon}}</td>
+                                <td>{{$turno->especialidad->name}}</td>
+                                <td>{{$turno->nivel->name}}</td>
+                                <td>{{$turno->grado->name}}</td>
                                 <td>{{$turno->name}}</td>
                                 <td class="text-right">
                                     @permission('turnos.edit')

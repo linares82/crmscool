@@ -12,7 +12,7 @@ class CreateSubcursosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('subcursos', function(Blueprint $table) {
+	    Schema::create('subcursos', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('curso_id')->unsigned();
             $table->string('name');

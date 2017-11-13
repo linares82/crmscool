@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            {!! Form::model($turno, array('route' => array('turnos.store'))) !!}
+            {!! Form::model($turno, array('route' => array('turnos.store')), 'id'=>'frm_turnos') !!}
 
 @include('turnos._form')
 

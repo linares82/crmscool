@@ -541,14 +541,19 @@ class ClientesController extends Controller {
         //dd($_REQUEST);
         $r = 0;
         $cli = Cliente::find(e($request->id));
-        $pla = Plantilla::find(2)->toArray();
+        $pla = Plantilla::find(2);
+        //dd($pla);
+        $p=array();
+        $p['img1']=$pla->img1;
+        $p['plantilla']=$pla->plantilla;
+        $p['id']=$cli->id;
         //dd($pla);
         
         if ($request->ajax()) {
             try {
                 $r = Param::where('llave', '=', 'correo_electronico')->first();
                 if ($r->valor == 'activo') {
-                    \Mail::send('emails.7', $pla, function($message) use ($request) {
+                    \Mail::send('emails.7', $p, function($message) use ($request) {
                         $message->to(e($request->mail), e($request->nombre) . " " . e($request->ape_paterno) . " " . e($request->ape_materno));
                         $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
                         $message->subject("Bienvenido");
