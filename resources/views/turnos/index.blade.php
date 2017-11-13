@@ -101,7 +101,7 @@
                     <thead>
                         <tr>
                             <th>@include('plantillas.getOrderLink', ['column' => 'id', 'title' => 'ID'])</th>
-                            <th>@include('CrudDscaffold::getOrderlink', ['column' => 'name', 'title' => 'NAME'])</th>
+                            <th>@include('CrudDscaffold::getOrderlink', ['column' => 'name', 'title' => 'TURNO'])</th>
                             <th class="text-right">OPCIONES</th>
                         </tr>
                     </thead>
