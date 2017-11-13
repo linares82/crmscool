@@ -38,15 +38,15 @@
                     <label for="nome">ID</label>
                     <p class="form-control-static">{{$turno->id}}</p>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-4">
                      <label for="name">TURNO</label>
                      <p class="form-control-static">{{$turno->name}}</p>
                 </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-4">
                      <label for="usu_alta_id">ALTA</label>
                      <p class="form-control-static">{{$turno->usu_alta->name}}</p>
                 </div>
-                    <div class="form-group">
+                    <div class="form-group col-sm-4">
                      <label for="usu_mod_id">ULTIMA MODIFICACION</label>
                      <p class="form-control-static">{{$turno->usu_mod->name}}</p>
                 </div>
