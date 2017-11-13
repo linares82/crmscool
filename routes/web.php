@@ -2930,7 +2930,7 @@ Route::get("hsSeguimientos/hsSeguimiento/{hsSeguimientos}/duplicate", ['as' => '
         'middleware' => 'permission:turnos.index',
         'uses' => 'TurnosController@index')
     )->middleware('auth');
-    Route::get('/turnos/create/{id}', array(
+    Route::get('/turnos/create', array(
         'as' => 'turnos.create',
         'middleware' => 'permission:turnos.create',
         'uses' => 'TurnosController@create')
