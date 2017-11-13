@@ -90,7 +90,7 @@
                             <span class="help-block">{{ $errors->first("st_cliente_id") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('plantel_id')) has-error @endif">
+                        <div class="form-group col-md-4 @if($errors->has('plantel_id')) has-error @endif" style="clear:left;">
                             <label for="plantel_id-field">Plantel</label>
                             {!! Form::select("plantel_id", $list["Plantel"], null, array("class" => "form-control select_seguridad", "id" => "plantel_id-field", 'readonly'=>'readonly')) !!}
                             @if($errors->has("plantel_id"))
