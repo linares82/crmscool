@@ -1224,6 +1224,10 @@
                             getCmbGrado2();
                             getCmbGrado3();
                             getCmbGrado4();
+                            getCmbTurno();
+                            getCmbTurno2();
+                            getCmbTurno3();
+                            getCmbTurno4();
                             $('#plantel_id-field').change(function(){
                             getCmbEspecialidad();
                             getCmbEspecialidad2();
@@ -1253,6 +1257,18 @@
                             });
                             $('#otro_id-field').change(function(){
                             getCmbGrado4();
+                            });
+                            $('#grado_id-field').change(function(){
+                            getCmbTurno();
+                            });
+                            $('#subcurso_id-field').change(function(){
+                            getCmbTurno2();
+                            });
+                            $('#subdiplomado_id-field').change(function(){
+                            getCmbTurno3();
+                            });
+                            $('#subotro_id-field').change(function(){
+                            getCmbTurno4();
                             });
                             //fin combos dependientes
 
@@ -1547,8 +1563,102 @@
                                     }
                             });
                             }
-
-
+                            function getCmbTurno(){
+                            //var $example = $("#especialidad_id-field").select2();
+                            var a = $('#frm_cliente').serialize();
+                            $.ajax({
+                            url: '{{ route("turnos.getCmbTurno") }}',
+                                    type: 'GET',
+                                    data: "plantel_id=" + $('#plantel_id-field option:selected').val() + "&especialidad_id=" + $('#especialidad_id-field option:selected').val() + "&nivel_id=" + $('#nivel_id-field option:selected').val() + "&grado_id=" + $('#grado_id-field option:selected').val() + "&turno_id=" + $('#turno_id-field option:selected').val() + "",
+                                    dataType: 'json',
+                                    beforeSend : function(){$("#loading12").show(); },
+                                    complete : function(){$("#loading12").hide(); },
+                                    success: function(data){
+                                    //alert(data);
+                                    //$example.select2("destroy");
+                                    $('#turno_id-field').html('');
+                                    //$('#especialidad_id-field').empty();
+                                    $('#turno_id-field').append($('<option></option>').text('Seleccionar').val('0'));
+                                    $.each(data, function(i) {
+                                    //alert(data[i].name);
+                                    $('#turno_id-field').append("<option " + data[i].selectec + " value=\"" + data[i].id + "\">" + data[i].name + "<\/option>");
+                                    });
+                                    //$example.select2();
+                                    }
+                            });
+                            }
+                            function getCmbTurno2(){
+                            //var $example = $("#especialidad_id-field").select2();
+                            var a = $('#frm_cliente').serialize();
+                            $.ajax({
+                            url: '{{ route("turnos.getCmbTurno") }}',
+                                    type: 'GET',
+                                    data: "plantel_id=" + $('#plantel_id-field option:selected').val() + "&especialidad_id=" + $('#especialidad_id-field option:selected').val() + "&nivel_id=" + $('#nivel_id-field option:selected').val() + "&grado_id=" + $('#subcurso_id-field option:selected').val() + "&turno_id=" + $('#turno2_id-field option:selected').val() + "",
+                                    dataType: 'json',
+                                    beforeSend : function(){$("#loading12").show(); },
+                                    complete : function(){$("#loading12").hide(); },
+                                    success: function(data){
+                                    //alert(data);
+                                    //$example.select2("destroy");
+                                    $('#turno2_id-field').html('');
+                                    //$('#especialidad_id-field').empty();
+                                    $('#turno2_id-field').append($('<option></option>').text('Seleccionar').val('0'));
+                                    $.each(data, function(i) {
+                                    //alert(data[i].name);
+                                    $('#turno2_id-field').append("<option " + data[i].selectec + " value=\"" + data[i].id + "\">" + data[i].name + "<\/option>");
+                                    });
+                                    //$example.select2();
+                                    }
+                            });
+                            }
+                            function getCmbTurno3(){
+                            //var $example = $("#especialidad_id-field").select2();
+                            var a = $('#frm_cliente').serialize();
+                            $.ajax({
+                            url: '{{ route("turnos.getCmbTurno") }}',
+                                    type: 'GET',
+                                    data: "plantel_id=" + $('#plantel_id-field option:selected').val() + "&especialidad_id=" + $('#especialidad_id-field option:selected').val() + "&nivel_id=" + $('#nivel_id-field option:selected').val() + "&grado_id=" + $('#subdiplomado_id-field option:selected').val() + "&turno_id=" + $('#turno3_id-field option:selected').val() + "",
+                                    dataType: 'json',
+                                    beforeSend : function(){$("#loading12").show(); },
+                                    complete : function(){$("#loading12").hide(); },
+                                    success: function(data){
+                                    //alert(data);
+                                    //$example.select2("destroy");
+                                    $('#turno3_id-field').html('');
+                                    //$('#especialidad_id-field').empty();
+                                    $('#turno3_id-field').append($('<option></option>').text('Seleccionar').val('0'));
+                                    $.each(data, function(i) {
+                                    //alert(data[i].name);
+                                    $('#turno3_id-field').append("<option " + data[i].selectec + " value=\"" + data[i].id + "\">" + data[i].name + "<\/option>");
+                                    });
+                                    //$example.select2();
+                                    }
+                            });
+                            }
+                            function getCmbTurno4(){
+                            //var $example = $("#especialidad_id-field").select2();
+                            var a = $('#frm_cliente').serialize();
+                            $.ajax({
+                            url: '{{ route("turnos.getCmbTurno") }}',
+                                    type: 'GET',
+                                    data: "plantel_id=" + $('#plantel_id-field option:selected').val() + "&especialidad_id=" + $('#especialidad_id-field option:selected').val() + "&nivel_id=" + $('#nivel_id-field option:selected').val() + "&grado_id=" + $('#subotro_id-field option:selected').val() + "&turno_id=" + $('#turno4_id-field option:selected').val() + "",
+                                    dataType: 'json',
+                                    beforeSend : function(){$("#loading12").show(); },
+                                    complete : function(){$("#loading12").hide(); },
+                                    success: function(data){
+                                    //alert(data);
+                                    //$example.select2("destroy");
+                                    $('#turno4_id-field').html('');
+                                    //$('#especialidad_id-field').empty();
+                                    $('#turno4_id-field').append($('<option></option>').text('Seleccionar').val('0'));
+                                    $.each(data, function(i) {
+                                    //alert(data[i].name);
+                                    $('#turno4_id-field').append("<option " + data[i].selectec + " value=\"" + data[i].id + "\">" + data[i].name + "<\/option>");
+                                    });
+                                    //$example.select2();
+                                    }
+                            });
+                            }
 
 
                             //codigo de trabajo del cargador de imagenes

@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use DB;
 use App\Turno;
 use Illuminate\Http\Request;
 use Auth;
@@ -122,5 +122,42 @@ class TurnosController extends Controller {
 
 		return redirect()->route('turnos.index')->with('message', 'Registro Borrado.');
 	}
+        
+        public function getCmbTurno(Request $request) {
+        if ($request->ajax()) {
+            //dd($request->all());
+            $plantel = $request->get('plantel_id');
+            $especialidad = $request->get('especialidad_id');
+            $nivel = $request->get('nivel_id');
+            $grado = $request->get('grado_id');
+            $turno = $request->get('turno_id');
+            $final = array();
+            $r = DB::table('turnos as t')
+                    ->select('t.id', 't.name')
+                    ->where('t.plantel_id', '=', $plantel)
+                    ->where('t.especialidad_id', '=', $especialidad)
+                    ->where('t.grado_id', '=', $grado)
+                    ->where('t.nivel_id', '=', $nivel)
+                    ->where('t.id', '>', '0')
+                    ->get();
+            //dd($r);
+            if (isset($turno) and $turno <> 0) {
+                foreach ($r as $r1) {
+                    if ($r1->id == $turno) {
+                        array_push($final, array('id' => $r1->id,
+                            'name' => $r1->name,
+                            'selectec' => 'Selected'));
+                    } else {
+                        array_push($final, array('id' => $r1->id,
+                            'name' => $r1->name,
+                            'selectec' => ''));
+                    }
+                }
+                return $final;
+            } else {
+                return $r;
+            }
+        }
+    }
 
 }

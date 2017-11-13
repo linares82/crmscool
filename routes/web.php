@@ -2965,3 +2965,8 @@ Route::get("hsSeguimientos/hsSeguimiento/{hsSeguimientos}/duplicate", ['as' => '
         'middleware' => 'permission:turnos.duplicate',
         'uses' => 'TurnosController@duplicate')
     )->middleware('auth');
+    Route::get('/getCmbTurno', array(
+        'as' => 'turnos.getCmbTurno',
+        //'middleware' => 'permission:tareas.show',
+        'uses' => 'TurnosController@getCmbTurno')
+    )->middleware('auth');
