@@ -76,10 +76,10 @@ class PlantillasController extends Controller {
 		//dd($input);
 		//create data
 		$p=Plantilla::create( $input );
-		$file = fopen(base_path('resources\views\emails\\'.$p->id.'.blade.php'), "w+");
+		/*$file = fopen(base_path('resources\views\emails\\'.$p->id.'.blade.php'), "w+");
 		fwrite($file, $input['plantilla']);
 		fclose($file);
-
+                */
 		return redirect()->route('plantillas.index')->with('message', 'Registro Creado.');
 	}
 
@@ -182,13 +182,13 @@ class PlantillasController extends Controller {
 		}*/
 		
 		//dd($input['plantilla']);
-		$file = fopen(base_path('resources\views\emails\\'.$id.'.blade.php'), "w+");
+		/*$file = fopen(base_path('resources\views\emails\\'.$id.'.blade.php'), "w+");
 		
 		
 		//dd($h);
 		fwrite($file, $h);
 		fclose($file);
-
+*/
 		return redirect()->route('plantillas.edit', $id)->with('message', 'Registro Actualizado.');
 	}
 
