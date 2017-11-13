@@ -46,6 +46,7 @@ class PlantelsController extends Controller {
 	public function store(createPlantel $request)
 	{
 		$input = $request->all();
+                
 		$input['usu_alta_id']=Auth::user()->id;
 		$input['usu_mod_id']=Auth::user()->id;
 		$input['logo']="";
@@ -64,7 +65,7 @@ class PlantelsController extends Controller {
 			$membrete_file = $request->file('membrete_file');
 			$input['membrete'] = $membrete_file->getClientOriginalName();	
 		}
-
+                
 		//create data
 		$e=Plantel::create( $input );
 		if ( $e ){

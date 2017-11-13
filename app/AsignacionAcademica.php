@@ -68,4 +68,5 @@ class AsignacionAcademica extends Model
 	public function horarios() {
 		return $this->hasMany('App\Horario');
 	}// end
+        
 }

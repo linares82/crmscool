@@ -168,7 +168,8 @@ trait GetAllDataTrait {
                     $myQuery=$myQuery->where('clientes.empleado_id', '=', $empleado->id);
                 }
                 if($baseTable=="seguimientos" and Auth::user()->can('IfiltroClientesXPlantel')){
-                    $myQuery=$myQuery->where('clientes.plantel_id', '=', $empleado->plantel_id);
+                    $myQuery=$myQuery->where('clientes.plantel_id', '=', $empleado->plantel_id)
+                                     ->where('st_seguimiento_id', '<>', '3');
                 }
                 break;
             case "pivot_aviso_gral_empleados":

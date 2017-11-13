@@ -259,7 +259,7 @@
                             <span class="help-block">{{ $errors->first("especialidad") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('nivel_id')) has-error @endif">
+                        <div class="form-group col-md-2 @if($errors->has('nivel_id')) has-error @endif">
                             <label for="nivel_id-field">Nivel</label>
                             {!! Form::select("nivel_id", $list["Nivel"], null, array("class" => "form-control select_seguridad", "id" => "nivel_id-field")) !!}
                             <div id='loading11' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
@@ -275,6 +275,14 @@
                             <span class="help-block">{{ $errors->first("grado_id") }}</span>
                             @endif
                         </div>
+                        <div class="form-group col-md-2 @if($errors->has('turno_id')) has-error @endif">
+                            <label for="turno_id-field">Turno</label>
+                            {!! Form::select("turno_id", $list["Turno"], null, array("class" => "form-control select_seguridad", "id" => "turno_id-field")) !!}
+                            <div id='loading12' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
+                            @if($errors->has("turno_id"))
+                            <span class="help-block">{{ $errors->first("turno_id") }}</span>
+                            @endif
+                        </div>
                         @permission('inscripcions.create')
                         <div class="form-group col-md-1 @if($errors->has('grado_id')) has-error @endif">
                             <input type="button" class="btn btn-primary" value="Inscribir" onclick="InscribirCliente(1)" />
@@ -288,7 +296,7 @@
                             <span class="help-block">{{ $errors->first("especialidad") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('curso_id')) has-error @endif">
+                        <div class="form-group col-md-2 @if($errors->has('curso_id')) has-error @endif">
                             <label for="curso_id-field">Nivel 2</label>
                             {!! Form::select("curso_id", $list["Nivel"], null, array("class" => "form-control select_seguridad", "id" => "curso_id-field")) !!}
                             <div id='loading20' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
@@ -304,6 +312,14 @@
                             <span class="help-block">{{ $errors->first("municipio_id") }}</span>
                             @endif
                         </div>
+                        <div class="form-group col-md-2 @if($errors->has('turno2_id')) has-error @endif">
+                            <label for="turno2_id-field">Turno</label>
+                            {!! Form::select("turno2_id", $list["Turno"], null, array("class" => "form-control select_seguridad", "id" => "turno2_id-field")) !!}
+                            <div id='loading12' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
+                            @if($errors->has("turno2_id"))
+                            <span class="help-block">{{ $errors->first("turno2_id") }}</span>
+                            @endif
+                        </div>
                         @permission('inscripcions.create')
                         <div class="form-group col-md-1 @if($errors->has('grado_id')) has-error @endif">
                             <input type="button" class="btn btn-primary" value="Inscribir" onclick="InscribirCliente(2)" />
@@ -317,7 +333,7 @@
                             <span class="help-block">{{ $errors->first("especialidad3") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('diplomado_id')) has-error @endif">
+                        <div class="form-group col-md-2 @if($errors->has('diplomado_id')) has-error @endif">
                             <label for="estado_id-field">Nivel 3</label>
                             {!! Form::select("diplomado_id", $list["Nivel"], null, array("class" => "form-control select_seguridad", "id" => "diplomado_id-field")) !!}
                             <div id='loading22' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
@@ -333,6 +349,14 @@
                             <span class="help-block">{{ $errors->first("subdiplomado_id") }}</span>
                             @endif
                         </div>
+                        <div class="form-group col-md-2 @if($errors->has('turno3_id')) has-error @endif">
+                            <label for="turno3_id-field">Turno</label>
+                            {!! Form::select("turno3_id", $list["Turno"], null, array("class" => "form-control select_seguridad", "id" => "turno3_id-field")) !!}
+                            <div id='loading12' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
+                            @if($errors->has("turno3_id"))
+                            <span class="help-block">{{ $errors->first("turno3_id") }}</span>
+                            @endif
+                        </div>
                         @permission('inscripcions.create')
                         <div class="form-group col-md-1 @if($errors->has('grado_id')) has-error @endif">
                             <input type="button" class="btn btn-primary" value="Inscribir" onclick="InscribirCliente(3)" />
@@ -346,7 +370,7 @@
                             <span class="help-block">{{ $errors->first("especialidad4") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('otro_id')) has-error @endif">
+                        <div class="form-group col-md-2 @if($errors->has('otro_id')) has-error @endif">
                             <label for="otro_id-field">Nivel 4</label>
                             {!! Form::select("otro_id", $list["Nivel"], null, array("class" => "form-control select_seguridad", "id" => "otro_id-field")) !!}
                             <div id='loading24' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
@@ -360,6 +384,14 @@
                             <div id='loading25' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
                             @if($errors->has("subotro_id"))
                             <span class="help-block">{{ $errors->first("subotro_id") }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group col-md-2 @if($errors->has('turno4_id')) has-error @endif">
+                            <label for="turno4_id-field">Turno</label>
+                            {!! Form::select("turno4_id", $list["Turno"], null, array("class" => "form-control select_seguridad", "id" => "turno4_id-field")) !!}
+                            <div id='loading12' style='display: none'><img src="{{ asset('images/ajax-loader.gif') }}" title="Enviando" /></div> 
+                            @if($errors->has("turno4_id"))
+                            <span class="help-block">{{ $errors->first("turno4_id") }}</span>
                             @endif
                         </div>
                         @permission('inscripcions.create')

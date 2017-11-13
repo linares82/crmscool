@@ -1,4 +1,9 @@
-                     <div class="box box-default">
+
+@foreach($errors as $e)
+{{ $e }}</p>
+@endforeach
+
+<div class="box box-default">
                       <div class="box-body"> 
                       <div class="form-group col-md-4 @if($errors->has('cve_plantel')) has-error @endif">
                          <label for="cve_plantel-field">Clave Plantel</label>

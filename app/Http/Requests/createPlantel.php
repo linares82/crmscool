@@ -27,14 +27,14 @@ class createPlantel extends FormRequest
             "razon" => "required",
             "rfc" => "required",
             'cve_incorporacion' => "required",
-            'direccion' => "required",
             'tel' => "required",
             'mail' => "required|email",
             'pag_web' => "required",
             'lectivo_id' => "required",
             'logo_file' => 'mimes:jpeg,jpg,png | max:100',
             'membrete_file' => 'mimes:jpeg,jpg,png | max:100',
-            'slogan_file' => 'mimes:jpeg,jpg,png | max:100',
+            'slogan_file' => 'mimes:jpeg,jpg,png | max:100'
+           
         ];
     }
 
@@ -43,7 +43,6 @@ class createPlantel extends FormRequest
         "razon.required" => 'El campo es requerido!',
         "rfc.required" => 'El campo es requerido!',
         'cve_incorporacion.required' => 'El campo es requerido!',
-        'direccion.required' => 'El campo es requerido!',
         'tel.required' => 'El campo es requerido!',
         'mail.required' => 'El campo es requerido!',
         'mail.email' => 'El campo no tiene el formato correcto!',

@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\AsistenciaR;
+use App\AsignacionAcademica;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests\updateAsistenciaR;
@@ -30,8 +31,10 @@ class AsistenciaRsController extends Controller {
 	 */
 	public function create($id)
 	{
-                $asignacion_academica_id=$id;
-		return view('asistenciaRs.create', compact('asignacion_academica_id'))
+                $asignacion_academica = AsignacionAcademica::find($id);
+                //$p=$asignacion_academica->grupo->inscripciones->toArray();
+                //dd($p);
+		return view('asistenciaRs.create', compact('asignacion_academica'))
 			->with( 'list', AsistenciaR::getListFromAllRelationApps() );
 	}
 
