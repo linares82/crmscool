@@ -90,6 +90,13 @@
                             <span class="help-block">{{ $errors->first("st_cliente_id") }}</span>
                             @endif
                         </div>
+                        <div class="form-group col-md-4 @if($errors->has('plantel_id')) has-error @endif">
+                            <label for="plantel_id-field">Plantel</label>
+                            {!! Form::select("plantel_id", $list["Plantel"], null, array("class" => "form-control select_seguridad", "id" => "plantel_id-field", 'readonly'=>'readonly')) !!}
+                            @if($errors->has("plantel_id"))
+                            <span class="help-block">{{ $errors->first("plantel_id") }}</span>
+                            @endif
+                        </div>
                         <div class="form-group col-md-4 @if($errors->has('empleado_id')) has-error @endif" style="clear:left;">
                             <label for="empleado_id-field">Empleado</label>
                             {!! Form::select("empleado_id", $empleados, null, array("class" => "form-control select_seguridad", "id" => "empleado_id-field")) !!}
@@ -98,13 +105,7 @@
                             <span class="help-block">{{ $errors->first("empleado_id") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('plantel_id')) has-error @endif">
-                            <label for="plantel_id-field">Plantel</label>
-                            {!! Form::select("plantel_id", $list["Plantel"], null, array("class" => "form-control select_seguridad", "id" => "plantel_id-field", 'readonly'=>'readonly')) !!}
-                            @if($errors->has("plantel_id"))
-                            <span class="help-block">{{ $errors->first("plantel_id") }}</span>
-                            @endif
-                        </div>
+
                         <div class="form-group col-md-4 @if($errors->has('empresa_id')) has-error @endif">
                             <label for="empresa_id-field">Empresa</label>
                             {!! Form::select("empresa_id", $list["Empresa"], null, array("class" => "form-control select_seguridad", "id" => "empresa_id-field", 'readonly'=>'readonly')) !!}
@@ -1075,7 +1076,7 @@
                             }
 
                             //Asigna el plantel segun el empleado
-                            $('#empleado_id-field').change(function(){
+                            /*$('#empleado_id-field').change(function(){
                             $("#loading3").show();
                             $.get("{{ url('getPlantel')}}",
                             { empleado: $(this).val() },
@@ -1085,6 +1086,42 @@
                                     }
                             );
                             });
+            */
+                            $('#plantel_id-field').change(function(){
+                                getCmbEmpleados();
+                            });
+
+                            function getCmbEmpleados(){
+                                //$('#empleado_id_field option:selected').val($('#empleado_id_campo option:selected').val()).change();
+                                var a= $('#frm_reasignar').serialize();
+                                    $.ajax({
+                                        url: '{{ route("empleados.getEmpleadosXplantel") }}',
+                                        type: 'GET',
+                                        data: a,
+                                        dataType: 'json',
+                                        beforeSend : function(){$("#loading3").show();},
+                                        complete : function(){$("#loading3").hide();},
+                                        success: function(data){
+                                            //$example.select2("destroy");
+                                            //alert($('#plantel_id-field option:selected').val());
+                                            $('#empleado_id-field').html('');
+                                            //$('#especialidad_id-field').empty();
+                                            $('#empleado_id-field').append($('<option></option>').text('Seleccionar Opción').val('0'));
+                                            
+                                            //alert($('#plantel_id2-field option:selected').val());
+                                            $.each(data, function(i) {
+                                                //alert(data[i].name);
+                                                $('#empleado_id-field').append("<option "+data[i].selectec+" value=\""+data[i].id+"\">"+data[i].nombre+"<\/option>");
+
+                                            });
+                                            //$('#empleado_id-field').change();
+                                            //$example.select2();
+                                        }
+                                    });       
+                            }
+           
+           
+           
                             /*
                              $.ajax({
                              url: '{{ url('getPlantel')}}',
@@ -1565,7 +1602,7 @@
                             popup = window.open("{{route('inscripcions.create')}}", "Popup", "width=800,height=650");
                             popup.onload = function(){
                             popup.document.getElementById('plantel_id-field').value = plantel;
-                            popup.document.getElementById('cliente_id-field').value = {{$cliente->id}};
+                            popup.document.getElementById('cliente_id-field').value = {{$cliente - > id}};
                             popup.location.reload();
                             if (numero == 1){
                             popup.document.getElementById('especialidad_id-field').value = especialidad1;
