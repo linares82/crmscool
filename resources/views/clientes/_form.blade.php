@@ -32,21 +32,15 @@
                         </div>
                     </div>
                     <div class="box-body">
-                        <div class="form-group col-md-4 @if($errors->has('cve_cliente')) has-error @endif">
-                            {!! Form::hidden("id", null, array("class" => "form-control", "id" => "id-field")) !!}
-                            <label for="cve_cliente-field">codigo SMS(Max. 160 catacteres)</label><div id="contador"></div>
-                            {!! Form::textArea("cve_cliente", null, array("class" => "form-control", "id" => "cve_cliente-field", 'rows'=>'3', 'maxlength'=>'160')) !!}
-                            @if($errors->has("cve_cliente"))
-                            <span class="help-block">{{ $errors->first("cve_cliente") }}</span>
+                        
+                         <div class="form-group col-md-4 @if($errors->has('escuela_procedencia')) has-error @endif">
+                            <label for="escuela_procedencia-field">Escuela Procedencia</label><div id="contador"></div>
+                            {!! Form::text("escuela_procedencia", null, array("class" => "form-control", "id" => "escuela_procedencia-field")) !!}
+                            @if($errors->has("escuela_procedencia"))
+                            <span class="help-block">{{ $errors->first("escuela_procedencia") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('matricula')) has-error @endif">
-                            <label for="matricula-field">Matricula</label><div id="contador"></div>
-                            {!! Form::text("matricula", null, array("class" => "form-control", "id" => "matricula-field")) !!}
-                            @if($errors->has("matricula"))
-                            <span class="help-block">{{ $errors->first("matricula") }}</span>
-                            @endif
-                        </div>
+                        
                         <div class="form-group col-md-4 @if($errors->has('nombre')) has-error @endif">
                             <label for="nombre-field">Primer nombre</label>
                             {!! Form::text("nombre", null, array("class" => "form-control", "id" => "nombre-field")) !!}
@@ -90,7 +84,7 @@
                             <span class="help-block">{{ $errors->first("st_cliente_id") }}</span>
                             @endif
                         </div>
-                        <div class="form-group col-md-4 @if($errors->has('plantel_id')) has-error @endif" style="clear:left;">
+                        <div class="form-group col-md-4 @if($errors->has('plantel_id')) has-error @endif">
                             <label for="plantel_id-field">Plantel</label>
                             {!! Form::select("plantel_id", $list["Plantel"], null, array("class" => "form-control select_seguridad", "id" => "plantel_id-field", 'readonly'=>'readonly')) !!}
                             @if($errors->has("plantel_id"))
@@ -111,6 +105,15 @@
                             {!! Form::select("empresa_id", $list["Empresa"], null, array("class" => "form-control select_seguridad", "id" => "empresa_id-field", 'readonly'=>'readonly')) !!}
                             @if($errors->has("empresa_id"))
                             <span class="help-block">{{ $errors->first("empresa_id") }}</span>
+                            @endif
+                        </div>
+                        
+                        <div class="form-group col-md-8 @if($errors->has('cve_cliente')) has-error @endif">
+                            {!! Form::hidden("id", null, array("class" => "form-control", "id" => "id-field")) !!}
+                            <label for="cve_cliente-field">codigo SMS(Max. 160 catacteres)</label><div id="contador"></div>
+                            {!! Form::textArea("cve_cliente", null, array("class" => "form-control", "id" => "cve_cliente-field", 'rows'=>'3', 'maxlength'=>'160')) !!}
+                            @if($errors->has("cve_cliente"))
+                            <span class="help-block">{{ $errors->first("cve_cliente") }}</span>
                             @endif
                         </div>
                     </div>
@@ -517,6 +520,13 @@
         </div>
         <div id="tab3" class="tab-pane">
             <fieldset>
+                <div class="form-group col-md-4 @if($errors->has('matricula')) has-error @endif">
+                    <label for="matricula-field">Matricula</label><div id="contador"></div>
+                    {!! Form::text("matricula", null, array("class" => "form-control", "id" => "matricula-field")) !!}
+                    @if($errors->has("matricula"))
+                    <span class="help-block">{{ $errors->first("matricula") }}</span>
+                    @endif
+                </div>
                 <div class="form-group col-md-4 @if($errors->has('cve_alumno')) has-error @endif">
                     <label for="cve_alumno-field">Clave Alumno</label>
                     {!! Form::text("cve_alumno", null, array("class" => "form-control", "id" => "cve_alumno-field")) !!}

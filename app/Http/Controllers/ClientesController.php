@@ -98,8 +98,9 @@ class ClientesController extends Controller {
         //$input['plantelplantel_id']=$empleado->plantel->id;
         $input['usu_alta_id'] = Auth::user()->id;
         $input['usu_mod_id'] = Auth::user()->id;
+        $param=Param::where('llave', '=', 'msj_text')->first();
         if ($input['cve_cliente'] == "") {
-            $input['cve_cliente'] = 'Codigo: ' . substr(Hash::make(rand(0, 1000)), 2, 8) . '. Grupo JESADI, te da la bienvenida y te felicita por dar el primer paso hacia tu futuro. Revisa tu correo y conoce los beneficios';
+            $input['cve_cliente'] = 'Codigo: ' . substr(Hash::make(rand(0, 1000)), 2, 8) . $param->valor;
         }
         if (!isset($input['promociones'])) {
             $input['promociones'] = 0;

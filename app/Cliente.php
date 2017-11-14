@@ -57,7 +57,7 @@ class Cliente extends Model
 						  'mail_padre','nombre_madre', 'curp_madre', 'dir_madre', 'tel_madre', 'cel_madre', 
 						  'tel_ofi_madre','mail_madre','nombre_acudiente', 'curp_acudiente', 'dir_acudiente', 
 						  'tel_acudiente', 'cel_acudiente', 'tel_ofi_acudiente','mail_acudiente', 'empresa_id',
-                                                  'turno_id', 'turno2_id', 'turno3_id', 'turno4_id'];
+                                                  'turno_id', 'turno2_id', 'turno3_id', 'turno4_id', 'escuela_procedencia'];
 
 	public function usu_alta() {
 		return $this->hasOne('App\User', 'id', 'usu_alta_id');

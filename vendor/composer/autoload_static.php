@@ -591,6 +591,7 @@ class ComposerStaticInit94ee770e675e3957b9a5767755ac4657
 
     public static $classMap = array (
         'AddDatesLectivoTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_16_195301_Add_Dates_Lectivo_Table.php',
+        'AddEscuelaProcedenciaClientesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_14_150558_add_escuela_procedencia_clientes_table.php',
         'AddEspecialidadCombosClientesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_12_134513_add_especialidad_combos_clientes_table.php',
         'AddEspecialidadNivelGradoTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_143725_add_especialidad_nivel_grado_table.php',
         'AddEspecialidadNivelTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_11_143659_add_especialidad_nivel_table.php',
