@@ -204,19 +204,10 @@
                                 <td>{{$cliente->cliente->ape_paterno}}</td>
                                 <td>{{$cliente->cliente->ape_materno}}</td>
                                 <td>
-                                @if($cliente->st_seguimiento_id==1)
-                                    <span class="label bg-red">
-                                        {{$cliente->stSeguimiento->name}}
-                                    </span>
-                                @elseif($cliente->st_seguimiento_id==2)
-                                    <span class="label bg-green">
-                                        {{$cliente->stSeguimiento->name}}
-                                    </span>
-                                @elseif($cliente->st_seguimiento_id==4)
-                                    <span class="label bg-yellow">
-                                        {{$cliente->stSeguimiento->name}}
-                                    </span>
-                                @endif
+                                
+                                <span class="label" style="background:{{$cliente->stSeguimiento->color}};">
+                                    {{$cliente->stSeguimiento->name}}
+                                </span>
                                 </td>
                                 <td>{{$cliente->cliente->stCliente->name}}</td>
                                 <td>

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddColorStSeguimientoTable' => $baseDir . '/database/migrations/2017_11_14_164248_add_color_st_seguimiento_table.php',
     'AddDatesLectivoTable' => $baseDir . '/database/migrations/2017_06_16_195301_Add_Dates_Lectivo_Table.php',
     'AddEscuelaProcedenciaClientesTable' => $baseDir . '/database/migrations/2017_11_14_150558_add_escuela_procedencia_clientes_table.php',
     'AddEspecialidadCombosClientesTable' => $baseDir . '/database/migrations/2017_08_12_134513_add_especialidad_combos_clientes_table.php',
@@ -97,7 +98,7 @@ return array(
     'CreateTpoCorreosTable' => $baseDir . '/database/migrations/2017_05_11_231401_create_tpo_correos_table.php',
     'CreateTpoExamensTable' => $baseDir . '/database/migrations/2017_09_18_164733_create_tpo_examens_table.php',
     'CreateTpoPlantelsTable' => $baseDir . '/database/migrations/2017_03_24_164425_create_tpo_plantels_table.php',
-    'CreateTurnosTable' => $baseDir . '/database/migrations/2017_11_13_100645_create_turnos_table.php',
+    'CreateTurnosTable' => $baseDir . '/database/migrations/2017_11_13_111400_create_turnos_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'DeleteFieldsPlantelsTable' => $baseDir . '/database/migrations/2017_06_19_171229_Delete_fields_Plantels_Table.php',

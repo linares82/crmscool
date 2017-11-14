@@ -590,6 +590,7 @@ class ComposerStaticInit94ee770e675e3957b9a5767755ac4657
     );
 
     public static $classMap = array (
+        'AddColorStSeguimientoTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_14_164248_add_color_st_seguimiento_table.php',
         'AddDatesLectivoTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_16_195301_Add_Dates_Lectivo_Table.php',
         'AddEscuelaProcedenciaClientesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_14_150558_add_escuela_procedencia_clientes_table.php',
         'AddEspecialidadCombosClientesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_12_134513_add_especialidad_combos_clientes_table.php',
@@ -681,7 +682,7 @@ class ComposerStaticInit94ee770e675e3957b9a5767755ac4657
         'CreateTpoCorreosTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_231401_create_tpo_correos_table.php',
         'CreateTpoExamensTable' => __DIR__ . '/../..' . '/database/migrations/2017_09_18_164733_create_tpo_examens_table.php',
         'CreateTpoPlantelsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_24_164425_create_tpo_plantels_table.php',
-        'CreateTurnosTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_13_100645_create_turnos_table.php',
+        'CreateTurnosTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_13_111400_create_turnos_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeleteFieldsPlantelsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_19_171229_Delete_fields_Plantels_Table.php',
