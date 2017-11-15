@@ -56,7 +56,7 @@ trait RelationManagerTrait {
           $relatedObjList = $relationAppArray['app']::where('id', '>', 0)->pluck($relationAppArray['relation_display_column'], 'id');
           $e=Empleado::where('user_id', '=', Auth::user()->id)->first();
           
-          if($relationAppName=="Empleado" and Auth::user()->can('IfiltroEmpleadosXPlantel')){
+          if($relationAppName=="Empleado" and Auth::user()->can('IfiltroEmpleadosXPlantelRelacion')){
             //dd($relationAppName);
             $relatedObjList = $relationAppArray['app']::where('plantel_id', '=', $e->plantel_id)
                                                         ->pluck($relationAppArray['relation_display_column'], 'id');
