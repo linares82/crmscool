@@ -44,7 +44,8 @@
                         Estatus: element.Estatus,
                         Mes: element.Mes,
                         Meta: element.Meta,
-                        Medio: element.medio
+                        Medio: element.medio,
+                        Usuario: element.Usuario
                     });
                 });
             };
