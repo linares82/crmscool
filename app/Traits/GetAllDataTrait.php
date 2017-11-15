@@ -118,6 +118,7 @@ trait GetAllDataTrait {
         //dd(Auth::user()->can('IfiltroClientesXPlantel'));
         //dd();
         $empleado=Empleado::where('user_id', '=', Auth::user()->id)->first();
+        
         //dd($baseTable);
         switch($baseTable){
             case "clientes":
@@ -165,7 +166,17 @@ trait GetAllDataTrait {
                 break;
             case "seguimientos":
                 if($baseTable=="seguimientos" and Auth::user()->can('IfiltroClientesXEmpleado')){
-                    $myQuery=$myQuery->where('clientes.empleado_id', '=', $empleado->id);
+                    $es=Empleado::where('user_id', '=', Auth::user()->id)->get();
+                    $cade="";
+                    $aux=0;
+                    foreach($es as $e){
+                        if($aux==0){
+                            $cade=$cade.$e->id;
+                        }else{
+                            $cade=",".$cade.$e->id;
+                        }
+                    }
+                    $myQuery=$myQuery->whereIn('clientes.empleado_id', [$cade]);
                 }
                 if($baseTable=="seguimientos" and Auth::user()->can('IfiltroClientesXPlantel')){
                     $myQuery=$myQuery->where('clientes.plantel_id', '=', $empleado->plantel_id)
